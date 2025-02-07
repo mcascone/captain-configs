@@ -1,6 +1,6 @@
 [PAGE]
 # Change the "NAME" below in uppercase letters <= 4 characters
-page_name = [MAX2]
+page_name = [UBER]
 
 # This section sets the global items within a page
 exp1_CH = [1]
