@@ -4,12 +4,12 @@ page_name = [UBER]
 
 # This section sets the global items within a page
 exp1_CH = [1]
-exp1_CC = [11]
+exp1_CC = [127]
 
 exp2_CH = [1]
-exp2_CC = [12]
+exp2_CC = [126]
 
-encoder_CC = [13]
+encoder_CC = [125]
 encoder_NAME = [WHEEL]
 
 # on / off
@@ -25,8 +25,8 @@ display_number_ABC = [abc3]
 group_number = [3]
 
 # 0 / 1 
-# set to 1 so that the displayed PC number starting from 1 (Actual PC still 0 )
-# set to 0 so that the displayed PC number starting from 0
+# set to 1 so that the displayed PC number starts from 1 (Actual PC still 0 )
+# set to 0 so that the displayed PC number starts from 0
 display_pc_offset = [0]
 
 # 0 / 1 
@@ -34,51 +34,82 @@ display_pc_offset = [0]
 # set to 1 so that when abcX display selected above, bank is start from 1A,1B,1C...
 display_bank_offset = [1]
 
+## COLORS
+# 0x000000 --Black
+# 0xFFFFFF --White
+# 0xFF0000 --Red
+# 0x00FF00 --Green
+# 0x0000FF --Blue
+# 0xFFFF00 --Yellow
+# 0xFF00FF --Purple
+# 0x00FFFF --Cyan
+# 0xFF7F00 --Orange
+# 0xFF7FFF --Pink
+# 0xFF7F7F --Light Red
+# faint blue = [0x1c2a99]
+
 ### SWITCH 1 ###
 ### OFF / TSC 1 / TSC 2 / BOTH ###
+### TSC 1 CC 1, TSC 2 CC 101
 [key0]
 keytimes = [4]
 ledmode = [normal]
 
 # TSC 1 ON, TSC 2 OFF
-ledcolor1 = [0x0FF000][0x000000][0x000000]
-short_dw1 = [1][CC][1][127][1][CC][101][0]
+ledcolor2 = [0x0FF000][0x000000][0x000000]
+short_dw2 = [1][CC][1][127] [1][CC][101][0]
 
 # TSC 1 OFF, TSC 2 ON
-ledcolor2 = [0x000000][0x000000][0x0FF000]
-short_dw2 = [1][CC][1][0][1][CC][101][127]
+ledcolor3 = [0x000000][0x000000][0x00FF00]
+short_dw3 = [1][CC][1][0] [1][CC][101][127]
 
 # TSC 1 ON, TSC 2 ON
-ledcolor3 = [0x0FF000][0x0FF000][0x0FF000]
-short_dw3 = [1][CC][1][127][1][CC][101][127]
+ledcolor4 = [0x0FF000][0x0FF000][0x0FF000]
+short_dw4 = [1][CC][1][127] [1][CC][101][127]
 
 # TSC 1 OFF, TSC 2 OFF
-ledcolor4 = [0x000000][0x000000][0x000000]
-short_dw4 = [1][CC][1][0][1][CC][101][0]
+ledcolor1 = [0x000000][0x000000][0x000000]
+short_dw1 = [1][CC][1][0] [1][CC][101][0]
 
-###  SWITCH 2  ###
-###   CHORUS   ###
+###      SWITCH 2    ###
+###   CHORUS / TREM  ###
+# Chorus CC 2, Trem CC 20
+# chorus is normal toggle
+# trem is reverse toggle
 [key1]
-keytimes = [2]
+keytimes = [4]
 ledmode = [normal]
-ledcolor1 = [0x4B0082][0x4B0082][0x4B0082]
-short_dw1 = [1][CC][2][127]
 
-ledcolor2 = [0x000000][0x000000][0x000000]
-short_dw2 = [1][CC][2][0]
+# off
+ledcolor1 = [0x000000][0x000000][0x000000]
+short_dw1 = [1][CC][2][0] [1][CC][20][127]
+
+# chorus on
+ledcolor2 = [0x4B0082][0x4B0082][0x4B0082]
+short_dw2 = [1][CC][2][127] [1][CC][20][127]
+
+# trem on
+ledcolor3 = [0xFFFFFF][0xFFFFFF][0xFFFFFF]
+short_dw3 = [1][CC][2][0] [1][CC][20][0]
+
+# both
+ledcolor4 = [0xFFFFFF][0x4B0082][0x0000FF]
+short_dw4 = [1][CC][2][127] [1][CC][20][0]
+
 
 ###       SWITCH 3       ###
 ###   DELAY / PING-PONG  ###
+# DELAY CC 3, PING-PONG CC 30
 [key2]
 keytimes = [2]
 ledmode = [normal]
 
 #### DELAY
-ledcolor1 = [0x0077cc][0x0077cc][0x0077cc]
-short_up1 = [1][CC][3][127]
+ledcolor1 = [0x000000][0x000000][0x000000]
+short_up1 = [1][CC][3][0]
 
-ledcolor2 = [0x000000][0x000000][0x000000]
-short_up2 = [1][CC][3][0]
+ledcolor2 = [0x0077cc][0x0077cc][0x0077cc]
+short_up2 = [1][CC][3][127]
 
 #### PING-PONG
 long1 = [1][CC][30][0]
@@ -86,55 +117,61 @@ long2 = [1][CC][30][127]
 
 ### SWITCH 4 ###
 ### GOJIRA REVERB / SHIMMER ###
+# REVERB CC 4, SHIMMER CC 40
 [key3]
 keytimes = [2]
 ledmode = [normal]
 
 #### REVERB
-ledcolor1 = [0x666699][0x666699][0x666699]
-short_up1 = [1][CC][4][127]
+ledcolor2 = [0x666699][0x666699][0x666699]
+short_up2 = [1][CC][4][127]
 
-ledcolor2 = [0x000000][0x000000][0x000000]
-short_up2 = [1][CC][4][0]
+ledcolor1 = [0x000000][0x000000][0x000000]
+short_up1 = [1][CC][4][0]
 
 #### SHIMMER
-long1 = [1][CC][40][127]
-long2 = [1][CC][40][0]
+long1 = [1][CC][40][0]
+long2 = [1][CC][40][127]
 
 ###   SWITCH ^     ###
 ###   RAB SYNTH    ###
+###   CC 5         ###
 [key4]
 keytimes = [2]
 ledmode = [normal]
-ledcolor1 = [0xFCCB1A][0xFCCB1A][0xFCCB1A]
-short_up1 = [1][CC][5][127]
+ledcolor2 = [0xFCCB1A][0xFCCB1A][0xFCCB1A]
+short_up2 = [1][CC][5][127]
 
-ledcolor2 = [0x000000][0x000000][0x000000]
-short_up2 = [1][CC][5][0]
+ledcolor1 = [0x000000][0x000000][0x000000]
+short_up1 = [1][CC][5][0]
 
 
 ### SWITCH A               ###
 ### PITCH (WOW) / WOW MODE ###
 ### Odd num. of longs means we need to use an even number of options
 ### to make the cycle repeat evenly.
+### PITCH CC 6, WOW MODE CC 60 ###
 [key5]
 keytimes = [6]
 ledmode = [normal]
-ledcolor1 = [0xFCCB1A][0xFCCB1A][0xFCCB1A]
-short_up1 = [1][CC][6][127]
 
-ledcolor2 = [0x000000][0x000000][0x000000]
-short_up2 = [1][CC][6][0]
+ledcolor1 = [0x000000][0x000000][0x000000]
+short_up1 = [1][CC][6][0]
 
-ledcolor3 = [0xFCCB1A][0xFCCB1A][0xFCCB1A]
-short_up3 = [1][CC][6][127]
+ledcolor2 = [0xFCCB1A][0xFCCB1A][0xFCCB1A]
+short_up2 = [1][CC][6][127]
 
-ledcolor4 = [0x000000][0x000000][0x000000]
-short_up4 = [1][CC][6][0]
-ledcolor5 = [0xFCCB1A][0xFCCB1A][0xFCCB1A]
-short_up5 = [1][CC][6][127]
-ledcolor6 = [0x000000][0x000000][0x000000]
-short_up6 = [1][CC][6][0]
+ledcolor3 = [0x000000][0x000000][0x000000]
+short_up3 = [1][CC][6][0]
+
+ledcolor4 = [0xFCCB1A][0xFCCB1A][0xFCCB1A]
+short_up4 = [1][CC][6][127]
+
+ledcolor5 = [0x000000][0x000000][0x000000]
+short_up5 = [1][CC][6][0]
+
+ledcolor6 = [0xFCCB1A][0xFCCB1A][0xFCCB1A]
+short_up6 = [1][CC][6][127]
 
 # WOW MODE
 long1 = [1][CC][60][0]
@@ -146,15 +183,19 @@ long6 = [1][CC][60][127]
 
 ### SWITCH B ###
 ### ROTOR / SPEED ###
-# 2 switches - bypass is reverse, and on/off is normal #
+# ROTOR CC 7, SPEED CC 70
+# ROTOR needs to messages: plugin bypass/on, and effect on/off
+# ROTOR bypass is reverse, and on/off is normal #
+# SPEED toggles FAST/SLOW on the ROTOR
 [key6]
 keytimes = [2]
 ledmode = [normal]
-ledcolor1 = [0xFFFFFF][0xFFFFFF][0xFFFFFF]
-short_up1 = [1][CC][7][0] [1][CC][120][127]
 
-ledcolor2 = [0x000000][0x000000][0x000000]
-short_up2 = [1][CC][7][127] [1][CC][120][0]
+ledcolor1 = [0x000000][0x000000][0x000000]
+short_up1 = [1][CC][7][127] [1][CC][120][0]
+
+ledcolor2 = [0xFFFFFF][0xFFFFFF][0xFFFFFF]
+short_up2 = [1][CC][7][0] [1][CC][120][127]
 
 #### SPEED
 long1 = [1][CC][70][0]
@@ -162,56 +203,65 @@ long2 = [1][CC][70][127]
 
 ###  SWITCH C ###
 ### FREQ ECHO ###
+###  CC 8     ###
 ### The CC values are reversed here because "on" means "bypass"
 [key7]
 keytimes = [2]
 ledmode = [normal]
-ledcolor1 = [0x0052cc][0x0052cc][0x0052cc]
-short_dw1 = [1][CC][8][0]
+ledcolor2 = [0x0052cc][0x0052cc][0x0052cc]
+short_dw2 = [1][CC][8][0]
 
-ledcolor2 = [0x000000][0x000000][0x000000]
-short_dw2 = [1][CC][8][127]
+ledcolor1 = [0x000000][0x000000][0x000000]
+short_dw1 = [1][CC][8][127]
 
 ### SWITCH D ###
 ### PLATE / SUPERMASSIVE / OFF ###
 ### LONG: PLATE MOD ON/OFF
 ### The CC values are reversed here because "on" means "bypass"
 ### odd num. of choices again -> multiply x2 to be even
+### PLATE CC 9, SUPERMASSIVE CC 91 ###
+### PLATE MOD CC 90 ###
 [key8]
 keytimes = [6]
 ledmode = [normal]
-ledcolor1 = [0x660000][0x660000][0x660000]
-short_up1 = [1][CC][9][0] [1][CC][10][127]
-
+ledcolor1 = [0x000000][0x000000][0x000000]
+short_up1 = [1][CC][9][127] [1][CC][91][127]
 ledcolor2 = [0x000066][0x000066][0x000066]
-short_up2 = [1][CC][9][127] [1][CC][10][0]
+short_up2 = [1][CC][9][127] [1][CC][91][0]
+ledcolor3 = [0x660000][0x660000][0x660000]
+short_up3 = [1][CC][9][0]   [1][CC][91][127]
 
-ledcolor3 = [0x000000][0x000000][0x000000]
-short_up3 = [1][CC][9][127] [1][CC][10][127]
-
-ledcolor4 = [0x660000][0x660000][0x660000]
-short_up4 = [1][CC][9][0] [1][CC][10][127]
+ledcolor4 = [0x000000][0x000000][0x000000]
+short_up4 = [1][CC][9][127] [1][CC][91][127]
 ledcolor5 = [0x000066][0x000066][0x000066]
-short_up5 = [1][CC][9][127] [1][CC][10][0]
-ledcolor6 = [0x000000][0x000000][0x000000]
-short_up6 = [1][CC][9][127] [1][CC][10][127]
+short_up5 = [1][CC][9][127] [1][CC][91][0]
+ledcolor6 = [0x660000][0x660000][0x660000]
+short_up6 = [1][CC][9][0]   [1][CC][91][127]
 
 #### MOD
-long1 = [1][CC][90][127]
-long2 = [1][CC][90][0]
-long3 = [1][CC][90][127]
-long4 = [1][CC][90][0]
-long5 = [1][CC][90][127]
-long6 = [1][CC][90][0]
+long1 = [1][CC][90][0]
+long2 = [1][CC][90][127]
+long3 = [1][CC][90][0]
+long4 = [1][CC][90][127]
+long5 = [1][CC][90][0]
+long6 = [1][CC][90][127]
 
 ###   SWITCH V   ###
-### GREAT ESCAPE ###
-###  reverse CCs ###
+### ROOM REVERBS / OLD SKOOL REVERB ###
+###  ROOMS CC 10-15, OLD SKOOL CC 100
+###  ROOMS is a normal toggle to multiple plugins, OLD SKOOL is a reverse toggle
 [key9]
-keytimes = [2]
+keytimes = [3]
 ledmode = [normal]
-ledcolor1 = [0x000000][0x000000][0x000000]
-short_dw1 = [1][CC][126][127]
 
+# OFF
+ledcolor1 = [0x000000][0x000000][0x000000]
+short_dw1 = [1][CC][100][127] [1][CC][10][0] [1][CC][11][0] [1][CC][12][0] [1][CC][13][0] [1][CC][14][0] [1][CC][15][0]
+
+# ROOMS
 ledcolor2 = [0xBBBBBB][0xBBBBBB][0xBBBBBB]
-short_dw2 = [1][CC][126][0]
+short_dw2 = [1][CC][100][127] [1][CC][10][127] [1][CC][11][127] [1][CC][12][127] [1][CC][13][127] [1][CC][14][127] [1][CC][15][127]
+
+# OLD SKOOL
+ledcolor3 = [0x111111][0x111111][0x111111]
+short_dw3 = [1][CC][100][0]   [1][CC][10][0] [1][CC][11][0] [1][CC][12][0] [1][CC][13][0] [1][CC][14][0] [1][CC][15][0]
