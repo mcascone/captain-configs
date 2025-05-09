@@ -25,8 +25,8 @@ display_number_ABC = [abc3]
 group_number = [3]
 
 # 0 / 1 
-# set to 1 so that the displayed PC number starts from 1 (Actual PC still 0 )
-# set to 0 so that the displayed PC number starts from 0
+# set to 1 so that the displayed PC number starting from 1 (Actual PC still 0 )
+# set to 0 so that the displayed PC number starting from 0
 display_pc_offset = [0]
 
 # 0 / 1 
@@ -249,7 +249,7 @@ long6 = [1][CC][90][127]
 ###   SWITCH V   ###
 ### ROOM REVERBS / OLD SKOOL REVERB ###
 ###  ROOMS CC 10-15, OLD SKOOL CC 100
-###  ROOMS is a normal toggle to multiple plugins, OLD SKOOL is a reverse toggle
+###  ROOMS is normal toggle to multiple plugins, OLD SKOOL is reverse toggle
 [key9]
 keytimes = [3]
 ledmode = [normal]
